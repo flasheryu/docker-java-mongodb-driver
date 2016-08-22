@@ -68,7 +68,5 @@ public final class TestMongo
 			e.printStackTrace();
 		}
 		
-		
-		
 	}
 }
