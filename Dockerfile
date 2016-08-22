@@ -11,6 +11,7 @@ WORKDIR /code
 
 # Prepare by downloading dependencies
 ADD pom.xml /code/pom.xml
+ADD startup.properties /code/startup.properties
 #RUN ["mvn", "dependency:resolve"]
 #RUN ["mvn", "verify"]
 
