@@ -15,10 +15,10 @@ ADD pom.xml /code/pom.xml
 #RUN ["mvn", "verify"]
 
 # Adding source, compile and package into a fat jar
-#ADD hello-world-0.1-SNAPSHOT-jar-with-dependencies.jar /code/hello-world-0.1-SNAPSHOT-jar-with-dependencies.jar
+#ADD java-mongo-0.0.1-SNAPSHOT-jar-with-dependencies.jar /code/java-mongo-0.0.1-SNAPSHOT-jar-with-dependencies.jar
 ADD src /code/src
 RUN ["mvn", "package"]
 
-EXPOSE 8080
+#EXPOSE 8080
 
-CMD ["java", "-jar", "target/hello-world-0.1-SNAPSHOT-jar-with-dependencies.jar"]
+CMD ["java", "-jar", "target/java-mongo-0.0.1-SNAPSHOT-jar-with-dependencies.jar"]
