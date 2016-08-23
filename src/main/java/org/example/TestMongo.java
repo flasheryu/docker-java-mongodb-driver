@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.Arrays;
+import java.util.Date;
 
 import org.bson.Document;
 import org.util.Configration;
@@ -42,19 +43,22 @@ public final class TestMongo
 
 		MongoDatabase db = mongoClient.getDatabase("myNewDB");
 		System.out.println("Connect my NewDB");
-		
 		MongoCollection<Document> table = db.getCollection("myNewCollection1");
 		System.out.println(table);
-
+		
 		BasicDBObject searchQuery = new BasicDBObject();
 		searchQuery.put("x", 1);
-
 		FindIterable<Document> cursor = table.find(searchQuery);
-
 		MongoCursor<Document> ite= cursor.iterator();
 		while (ite.hasNext()) {
 			System.out.println(ite.next());
 		}
+		
+		Document document = new Document();
+		document.put("name", "mkyong");
+		document.put("age", 30);
+		document.put("createdDate", new Date());
+		table.insertOne(document);
 		
 		FindIterable<Document> dv = db.getCollection("myNewCollection1").find();
 		MongoCursor<Document> ite1 = dv.iterator();
