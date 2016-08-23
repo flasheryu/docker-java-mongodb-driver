@@ -38,8 +38,6 @@ public final class TestMongo
 			MongoClient mongoClient = new MongoClient(new ServerAddress(
 					server, Integer.valueOf(port)),
 					Arrays.asList(mongoCredential));
-//		MongoClient mongoClient = new MongoClient(new ServerAddress(
-//				"42.62.101.83", 27017), new MongoClientOptions.Builder().build());
 
 		MongoDatabase db = mongoClient.getDatabase("myNewDB");
 		System.out.println("Connect my NewDB");
@@ -54,11 +52,11 @@ public final class TestMongo
 			System.out.println(ite.next());
 		}
 		
-		Document document = new Document();
-		document.put("name", "mkyong");
-		document.put("age", 30);
-		document.put("createdDate", new Date());
-		table.insertOne(document);
+//		Document document = new Document();
+//		document.put("name", "mkyong");
+//		document.put("age", 30);
+//		document.put("createdDate", new Date());
+//		table.insertOne(document);
 		
 		FindIterable<Document> dv = db.getCollection("myNewCollection1").find();
 		MongoCursor<Document> ite1 = dv.iterator();
