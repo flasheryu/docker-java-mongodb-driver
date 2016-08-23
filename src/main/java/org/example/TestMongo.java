@@ -29,8 +29,10 @@ public final class TestMongo
 		String user = Configration.get("catfish.mongo.username");
 		String database = Configration.get("catfish.mongo.databasename");
 		String pwd = Configration.get("catfish.mongo.password");
-		String server = Configration.get("catfish.mongo.ip");
-		String port = Configration.get("catfish.mongo.port");
+//		String server = Configration.get("catfish.mongo.ip");
+//		String port = Configration.get("catfish.mongo.port");
+		String server = System.getenv("MONGO_PORT_27017_TCP_ADDR");
+        String port = System.getenv("MONGO_PORT_27017_TCP_PORT");
 		
 		try {
 			MongoCredential mongoCredential = MongoCredential.createScramSha1Credential(user, database,
